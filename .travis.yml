@@ -1,3 +1,7 @@
+sudo: required
+dist: trusty
 language: c
-sudo: false
+before_script:
+  - ulimit -c unlimited -S
+  - strings /usr/lib/x86_64-linux-gnu/libstdc++.so.6|grep GLIBCX
 script: make clean;make
