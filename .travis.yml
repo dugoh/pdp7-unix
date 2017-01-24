@@ -1,7 +1,17 @@
 sudo: required
 dist: trusty
 language: c
-before_script:
-  - ulimit -c unlimited -S
-  - strings /usr/lib/x86_64-linux-gnu/libstdc++.so.6|grep GLIBCX
 script: make clean;make
+after_script
+  - tar -cvf all.tar ./build/*
+  - cd build
+  - mv ../all.tar ./
+  - git init
+  - git config user.name "${USER}"
+  - git config user.email "${GH_MAIL}"
+  - echo "<HTML><HEAD><TITLE>LINKS</TITLE></HEAD><BODY><ul>" >index.html
+  - for file in $(ls|grep -v index.html); do (printf '<li><a href="' ; printf "${file}" ; printf '">' ; printf "${file}" ; printf '</a></li>\n') >>index.html ; done
+  - echo "</ul></BODY></HTML>" >>index.html
+  - git add .
+  - git commit -m "Deploy to GitHub Pages"
+  - git push -fq https://${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git master:gh-pages >/dev/null 2>&1
