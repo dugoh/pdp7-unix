@@ -144,5 +144,13 @@ to Warren Toomey (DoctorWkt) if you are keen to help out.
 
 ## Travis Status
 
+Original:
 <a href="https://travis-ci.org/DoctorWkt/pdp7-unix">
 <img src="https://api.travis-ci.org/DoctorWkt/pdp7-unix.png"></a>
+
+This:
+[![Build Status](https://travis-ci.org/dugoh/pdp7-unix.svg?branch=master)](https://travis-ci.org/dugoh/pdp7-unix)
+
+## Artifacts
+
+https://dugoh.github.io/pdp7-unix/
