@@ -2,7 +2,7 @@ sudo: required
 dist: trusty
 language: c
 script: make clean;make
-after_script
+after_script:
   - tar -cvf all.tar ./build/*
   - cd build
   - mv ../all.tar ./
