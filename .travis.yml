@@ -6,6 +6,7 @@ after_script:
   - tar -cvf all.tar ./build/*
   - cd build
   - mv ../all.tar ./
+  - bzip2 --best *
   - git init
   - git config user.name "${USER}"
   - git config user.email "${GH_MAIL}"
